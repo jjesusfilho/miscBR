@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Função xtsumR\n#'\n#' This function does the same as the xtsum funtion in Stata.\n#' @param df data frame \n#' @param columns vector with selected colums' numbers\n#' @param individuals column where the individuals are \n#' @keywords summary, panel data\n#' @import tibble\n#' @import dplyr\n#' @return A data.frame with the summary\n#' @export\n#' @examples\n#' xtsum(df,c(3,4,5),\"uf\")\n\n\nxtsumR<-function(df,columns,individuals){\n  df<-df[order(individuals),]\n  panel<-data.frame()\n  for (i in columns){\n    v<-df %>% group_by() %>%\n      summarize(\n        mean=mean(df[[i]]),\n        sd=sd(df[[i]]),\n        min=min(df[[i]]),\n        max=max(df[[i]])\n      )\n    v<-add_column(v,variacao=\"overal\",.before=-1)\n    v2<-aggregate(df[[i]],list(df[[individuals]]),\"mean\")[[2]]\n    sdB<-sd(v2)\n    varW<-df[[i]]-rep(v2,each=12) #\n    varW<-varW+mean(df[[i]])\n    sdW<-sd(varW)\n    minB<-min(v2)\n    maxB<-max(v2)\n    minW<-min(varW)\n    maxW<-max(varW)\n    v<-rbind(v,c(\"between\",NA,sdB,minB,maxB),c(\"within\",NA,sdW,minW,maxW))\n    panel<-rbind(panel,v)\n  }\n  var<-rep(names(df)[columns])\n  n1<-rep(NA,length(columns))\n  n2<-rep(NA,length(columns))\n  var<-c(rbind(var,n1,n1))\n  panel$var<-var\n  panel<-panel[c(6,1:5)]\n  names(panel)<-c(\"variable\",\"variation\",\"mean\",\"standard.deviation\",\"min\",\"max\")\n  panel[3:6]<-as.numeric(unlist(panel[3:6]))\n  panel[3:6]<-round(unlist(panel[3:6]),2)\n  return(panel)\n}\n",
+    "created" : 1494574612173.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "826165413",
+    "id" : "D11D6285",
+    "lastKnownWriteTime" : 1493016152,
+    "last_content_update" : 1494574669244,
+    "path" : "~/Dropbox/miscBR/R/xtsumR.R",
+    "project_path" : "R/xtsumR.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
