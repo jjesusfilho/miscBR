@@ -2,7 +2,7 @@
 % Please edit documentation in R/postal.R
 \name{postal}
 \alias{postal}
-\title{Função postal}
+\title{Function postal}
 \usage{
 postal(cep)
 }
@@ -14,6 +14,11 @@ A data.frame with the addresses
 }
 \description{
 This function return address based on Brazilian postal code
+}
+\examples{
+postal(02930000)
+postal("02929020")
+postal("02846-000")
 }
 \keyword{cep}
 \keyword{code,}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cnpj.R
 \name{cnpj}
 \alias{cnpj}
-\title{Função cnpj}
+\title{Funtion cnpj}
 \usage{
 cnpj(cnpj)
 }
