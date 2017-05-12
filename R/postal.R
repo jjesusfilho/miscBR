@@ -1,4 +1,4 @@
-#' Função postal
+#' Function postal
 #'
 #' This function return address based on Brazilian postal code
 #' @param vector with Brazilian postal codes
@@ -6,6 +6,10 @@
 #' @import httr
 #' @import stringr
 #' @return A data.frame with the addresses
+#' @examples
+#' postal(02930000)
+#' postal("02929020")
+#' postal("02846-000")
 #' @export
 postal<-function(cep){
   cep<-str_replace(cep,"\\D","")
@@ -24,7 +28,4 @@ postal<-function(cep){
   return(df)
 }
 
-#' @examples
-#' postal(02930000)
-#' postal(02929-020)
-#' postal("02846-000")
+

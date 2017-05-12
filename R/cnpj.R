@@ -1,4 +1,4 @@
-#' Função cnpj
+#' Funtion cnpj
 #'
 #' This function returns information about Brazilian companies based on tax number
 #' @param vector with Brazilian companies tax numbers
@@ -7,6 +7,9 @@
 #' @import stringr
 #' @import plyr
 #' @return A data.frame with companies' information
+#' @examples
+#' cnpj("60.746.948.0001-12")
+#' cnpj("60746948000112)
 #' @export
 cnpj<-function(cnpj){
   cnpj<-str_replace_all(cnpj,"\\D+","")
@@ -31,7 +34,4 @@ cnpj<-function(cnpj){
   return(df)
 }
 
-#' @examples
-#' cnpj("60.746.948.0001-12")
-#' cnpj("60746948000112)
 
