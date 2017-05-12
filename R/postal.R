@@ -1,4 +1,3 @@
-library(httr)
 #' Função postal
 #'
 #' This function return address based on Brazilian postal code

@@ -21,5 +21,7 @@ Imports:
   stringi,
   stringr,
   tibble,
-  dplyr
+  dplyr,
+  jsonlite,
+  plyr
 RoxygenNote: 6.0.1
