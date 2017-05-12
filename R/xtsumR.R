@@ -1,4 +1,4 @@
-#' Função xtsumR
+#' Function xtsumR
 #'
 #' This function does the same as the xtsum funtion in Stata.
 #' @param df data frame 

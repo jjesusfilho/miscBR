@@ -1,6 +1,6 @@
-#' Função number_br
+#' Function number_br
 #'
-#' This converts numbers to English format.
+#' Converts numbers to English format.
 #' @param vector of numbers in format of character strings
 #' @keywords numbers
 #' @import stringr

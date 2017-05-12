@@ -2,7 +2,7 @@
 % Please edit documentation in R/number_br.R
 \name{number_br}
 \alias{number_br}
-\title{Função number_br}
+\title{Function number_br}
 \usage{
 number_br(str)
 }
@@ -13,6 +13,6 @@ number_br(str)
 numeric vector
 }
 \description{
-This converts numbers to English format.
+Converts numbers to English format.
 }
 \keyword{numbers}

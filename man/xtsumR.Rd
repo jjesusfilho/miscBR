@@ -2,7 +2,7 @@
 % Please edit documentation in R/xtsumR.R
 \name{xtsumR}
 \alias{xtsumR}
-\title{Função xtsumR}
+\title{Function xtsumR}
 \usage{
 xtsumR(df, columns, individuals)
 }
