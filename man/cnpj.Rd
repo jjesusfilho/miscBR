@@ -2,12 +2,14 @@
 % Please edit documentation in R/cnpj.R
 \name{cnpj}
 \alias{cnpj}
-\title{Funtion cnpj}
+\title{Function cnpj}
 \usage{
-cnpj(cnpj)
+cnpj(cnpj, latlong = TRUE)
 }
 \arguments{
-\item{vector}{with Brazilian companies tax numbers}
+\item{cnpj}{vector with Brazilian companies tax numbers}
+
+\item{latlong}{boolean. Default TRUE, it also returns the latlong}
 }
 \value{
 A data.frame with companies' information
@@ -15,6 +17,12 @@ A data.frame with companies' information
 \description{
 This function returns information about Brazilian companies based on tax number
 }
+\examples{
+cnpj("60.746.948.0001-12")
+cnpj("60746948000112")
+}
+\keyword{address,}
 \keyword{cnpj,}
-\keyword{number}
+\keyword{latlong}
+\keyword{number,}
 \keyword{tax}

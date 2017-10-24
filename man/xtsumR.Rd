@@ -7,7 +7,7 @@
 xtsumR(df, columns, individuals)
 }
 \arguments{
-\item{df}{data frame}
+\item{df}{data.frame}
 
 \item{columns}{vector with selected colums' numbers}
 
@@ -20,7 +20,10 @@ A data.frame with the summary
 This function does the same as the xtsum funtion in Stata.
 }
 \examples{
-xtsum(df,c(3,4,5),"uf")
+df<-data.frame(a=rnorm(n=20,mean=23,sd=6),
+    b=rnorm(n=20,mean=18,sd=7),
+    uf=sample(c("SP","MS","RS","AM","SE"),20,replace=TRUE))
+xtsumR(df,c(1,2),"uf")
 }
 \keyword{data}
 \keyword{panel}

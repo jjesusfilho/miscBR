@@ -7,12 +7,12 @@
 number_br(str)
 }
 \arguments{
-\item{vector}{of numbers in format of character strings}
+\item{str}{vector of numbers in character strings's format}
 }
 \value{
 numeric vector
 }
 \description{
-Converts numbers to English format.
+Converts strings to numbers to English format.
 }
 \keyword{numbers}

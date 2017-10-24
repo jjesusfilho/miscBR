@@ -1,18 +1,20 @@
 #' Function xtsumR
 #'
 #' This function does the same as the xtsum funtion in Stata.
-#' @param df data frame 
+#' @param df data.frame 
 #' @param columns vector with selected colums' numbers
 #' @param individuals column where the individuals are 
 #' @keywords summary, panel data
 #' @import tibble
 #' @import dplyr
+#' @importFrom stats aggregate sd
 #' @return A data.frame with the summary
-#' @export
 #' @examples
-#' xtsum(df,c(3,4,5),"uf")
-
-
+#' df<-data.frame(a=rnorm(n=20,mean=23,sd=6),
+#'     b=rnorm(n=20,mean=18,sd=7),
+#'     uf=sample(c("SP","MS","RS","AM","SE"),20,replace=TRUE))
+#' xtsumR(df,c(1,2),"uf")
+#' @export
 xtsumR<-function(df,columns,individuals){
   df<-df[order(individuals),]
   panel<-data.frame()
@@ -25,7 +27,7 @@ xtsumR<-function(df,columns,individuals){
         max=max(df[[i]])
       )
     v<-tibble::add_column(v,variacao="overal",.before=-1)
-    v2<-aggregate(df[[i]],list(df[[individuals]]),"mean")[[2]]
+    v2<-stats::aggregate(df[[i]],list(df[[individuals]]),"mean")[[2]]
     sdB<-sd(v2)
     varW<-df[[i]]-rep(v2,each=12) #
     varW<-varW+mean(df[[i]])
